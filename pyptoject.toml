@@ -1,0 +1,57 @@
+pyproject
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-accounting-xls"
+version = "1.0.0"
+description = "Excel-based financial consolidation tool using python-accounting"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Financial Consolidation Team", email = "support@example.com"}
+]
+keywords = ["accounting", "consolidation", "excel", "ifrs", "gaap", "finance"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "python-accounting>=0.7.0",
+    "pandas>=1.3.0",
+    "openpyxl>=3.6.0",
+    "SQLAlchemy>=1.4.0",
+    "pydantic>=1.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.2.0",
+    "pytest-cov>=2.12.0",
+    "black>=21.0",
+    "flake8>=3.9.0",
+    "mypy>=0.900",
+]
+
+[project.urls]
+Homepage = "https://github.com/feifeijiang48/python-accounting-xls"
+Documentation = "https://github.com/feifeijiang48/python-accounting-xls/tree/main/docs"
+Repository = "https://github.com/feifeijiang48/python-accounting-xls.git"
+"Bug Tracker" = "https://github.com/feifeijiang48/python-accounting-xls/issues"
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --cov=src --cov-report=html"
